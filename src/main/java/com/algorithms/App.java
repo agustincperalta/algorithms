@@ -42,9 +42,28 @@ public class App {
 // 1.1.13 Write a code fragment to print the transposition (rows and columns changed)
     // of a two-dimensional array with M rows and N columns.
 
-    printRandomTransposeMatrix(3, 4);
+//    printRandomTransposeMatrix(3, 4);
+
+    // 1.1.14 Write a static method lg() that takes an int value N as argument and returns the
+    // largest int not larger than the base-2 logarithm of N. Do not use Math
+
+    System.out.println(lg(3243));
 
   }
+
+  private static int lg(int N) {
+    int result = 1;
+    int count = 0;
+    while (result < N) {
+      result *= 2;
+      if (result < N) {
+        count++;
+      }
+    }
+    return count;
+
+  }
+
 
   private static void printRandomTransposeMatrix(int m, int n) {
     int[][] matrix = getMNMatrix(m, n);
