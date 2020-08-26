@@ -47,8 +47,48 @@ public class App {
     // 1.1.14 Write a static method lg() that takes an int value N as argument and returns the
     // largest int not larger than the base-2 logarithm of N. Do not use Math
 
-    System.out.println(lg(3243));
+//    System.out.println(lg(3243));
 
+    // 1.1.15 Write a static method histogram() that takes an array a[]
+    // of int values and an integer M as arguments and returns an array of
+    // length M whose ith entry is the number of times the integer i
+    // appeared in the argument array. If the values in a[] are all
+    // between 0 and M - 1, the sum of the values in the returned array should
+    // be equal to a.length
+
+    int[] test = getRandomIntArray(2000);
+    printArray(test);
+    StdOut.println();
+    printArray(histogram(test, 10));
+  }
+
+  private static int[] histogram(int[] a, int M) {
+    int[] b = new int[M];
+    for (int k : a) {
+      for (int j = 0; j < b.length; j++) {
+        int count = 0;
+        if (k == j) {
+          count++;
+        }
+        b[j] += count;
+      }
+    }
+    return b;
+  }
+
+  private static void printArray(int[] a) {
+    for (int i :
+        a) {
+      System.out.print(i + " ");
+    }
+  }
+
+  private static int[] getRandomIntArray(int M) {
+    int[] random = new int[M];
+    for (int i = 0; i < random.length; i++) {
+      random[i] = StdRandom.uniform(0, 9);
+    }
+    return random;
   }
 
   private static int lg(int N) {
@@ -63,7 +103,6 @@ public class App {
     return count;
 
   }
-
 
   private static void printRandomTransposeMatrix(int m, int n) {
     int[][] matrix = getMNMatrix(m, n);
@@ -204,7 +243,6 @@ public class App {
     }
   }
 
-
   private static void printEqualNotEqual(String[] args) {
     // TODO verificar tamaño de args
 
@@ -219,7 +257,6 @@ public class App {
       StdOut.println("not equal");
     }
   }
-
 
   private static boolean evaluateCorrectRange(double x, double y) {
     if (x > 1.0 || y > 1.0) {
