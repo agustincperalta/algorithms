@@ -56,13 +56,15 @@ public class App {
     // between 0 and M - 1, the sum of the values in the returned array should
     // be equal to a.length
 
-    int[] test = getRandomIntArray(2000);
-    printArray(test);
-    StdOut.println();
-    printArray(histogram(test, 10));
+//    int[] test = getRandomIntArray(10000000);
+//    printArray(test);
+//    StdOut.println();
+//    printArray(histogram(test, 10));
+
   }
 
-  private static int[] histogram(int[] a, int M) {
+  //TODO hacer esta clase una libreria
+  public static int[] histogram(int[] a, int M) {
     int[] b = new int[M];
     for (int k : a) {
       for (int j = 0; j < b.length; j++) {
@@ -76,22 +78,22 @@ public class App {
     return b;
   }
 
-  private static void printArray(int[] a) {
-    for (int i :
+  public static <T> void printArray(T[] a) {
+    for (T i :
         a) {
       System.out.print(i + " ");
     }
   }
 
-  private static int[] getRandomIntArray(int M) {
+  public static int[] getRandomIntArray(int M) {
     int[] random = new int[M];
     for (int i = 0; i < random.length; i++) {
-      random[i] = StdRandom.uniform(0, 9);
+      random[i] = StdRandom.uniform(0, 10);
     }
     return random;
   }
 
-  private static int lg(int N) {
+  public static int lg(int N) {
     int result = 1;
     int count = 0;
     while (result < N) {
@@ -104,7 +106,7 @@ public class App {
 
   }
 
-  private static void printRandomTransposeMatrix(int m, int n) {
+  public static void printRandomTransposeMatrix(int m, int n) {
     int[][] matrix = getMNMatrix(m, n);
     StdOut.println("MATRIZ ORIGINAL");
     printTwoDimArray(matrix);
@@ -113,7 +115,7 @@ public class App {
     printTwoDimArray(transpose);
   }
 
-  private static void printTwoDimArray(int[][] matrix) {
+  public static void printTwoDimArray(int[][] matrix) {
     for (int i = 0; i < matrix.length; i++) {
       for (int j = 0; j < matrix[i].length; j++) {
         StdOut.print(matrix[i][j] + " ");
@@ -122,7 +124,7 @@ public class App {
     }
   }
 
-  private static int[][] getTranspose(int[][] matrix) {
+  public static int[][] getTranspose(int[][] matrix) {
     int[][] transpose = new int[matrix[0].length][matrix.length];
     for (int i = 0; i < matrix.length; i++) {
       for (int j = 0; j < matrix[0].length; j++) {
@@ -132,7 +134,7 @@ public class App {
     return transpose;
   }
 
-  private static int[][] getMNMatrix(int m, int n) {
+  public static int[][] getMNMatrix(int m, int n) {
     int[][] matrix = new int[m][n];
     for (int i = 0; i < matrix.length; i++) {
       for (int j = 0; j < matrix[i].length; j++) {
@@ -143,7 +145,7 @@ public class App {
     return matrix;
   }
 
-  private static boolean[][] getBooleans() {
+  public static boolean[][] getBooleans() {
     boolean[][] booleans = new boolean[StdRandom.uniform(1, 10)][StdRandom.uniform(25, 50)];
 
     StdOut.println("La matriz generada es de: [" + booleans.length + "][" + booleans[0].length
@@ -156,12 +158,12 @@ public class App {
     return booleans;
   }
 
-  private static boolean randomBoolean() {
+  public static boolean randomBoolean() {
     Random r = new Random();
     return r.nextBoolean();
   }
 
-  private static void printBooleanArray(boolean[][] booleans) {
+  public static void printBooleanArray(boolean[][] booleans) {
     StdOut.print("X ");
     for (int i = 0; i < booleans[0].length; i++) {
       StdOut.print(i + 1);
@@ -183,7 +185,7 @@ public class App {
 
   }
 
-  private static void integerToBinary(int integer) {
+  public static void integerToBinary(int integer) {
     String s = "";
     for (int i = integer; i > 0; i = i / 2) {
 //
@@ -203,7 +205,7 @@ public class App {
     StdOut.println(integer + " en binario es: " + s);
   }
 
-  private static void getSum() {
+  public static void getSum() {
     int sum = 0;
     for (int i = 1; i < 1000; i *= 2) {
       for (int j = 0; j < 1000; j++) {
@@ -214,7 +216,7 @@ public class App {
     StdOut.println(sum);
   }
 
-  private static void addFirst1000Numbers() {
+  public static void addFirst1000Numbers() {
     int sum = 0;
     for (int i = 0; i < 1000; i++) {
       for (int j = 0; j < i; j++) {
@@ -225,7 +227,7 @@ public class App {
     StdOut.println(sum);
   }
 
-  private static void whileMinusValue() {
+  public static void whileMinusValue() {
     double t = 9.0;
     while (Math.abs(t - 9.0 / t) > .001) {
       t = (9.0 / t + t) / 2.0;
@@ -233,7 +235,7 @@ public class App {
     StdOut.printf("%.5f\n", t);
   }
 
-  private static void fibonacci() {
+  public static void fibonacci() {
     int f = 0;
     int g = 1;
     for (int i = 0; i < 15; i++) {
@@ -243,7 +245,7 @@ public class App {
     }
   }
 
-  private static void printEqualNotEqual(String[] args) {
+  public static void printEqualNotEqual(String[] args) {
     // TODO verificar tamaño de args
 
     if (args[0].equals(args[1])) {
@@ -258,7 +260,7 @@ public class App {
     }
   }
 
-  private static boolean evaluateCorrectRange(double x, double y) {
+  public static boolean evaluateCorrectRange(double x, double y) {
     if (x > 1.0 || y > 1.0) {
       return false;
     } else {
